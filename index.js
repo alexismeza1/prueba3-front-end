@@ -29,65 +29,86 @@ const fun4 = (a, b) => {
 console.log("resultado: " + fun4(1, 1));
 
 /*Selectores javascript */
-let codigo = document.getElementById("codigo");
-let correo = document.getElementById("correo");
-let descripcion = document.getElementById("descripcion");
 let pais = document.getElementById("pais");
+let capital = document.getElementById("capital");
+let region = document.getElementById("region");
+let idioma = document.getElementById("idioma");
+
 
 /*funciones para validar */
 function validarTexto() {
     var regex = /^[A-Za-z]+$/;
-    let validCodigo = document.getElementById("validCodigo");
-    if (!regex.test(codigo.value)) {
-        validCodigo.innerText = "Por favor, introduce solo caracteres de texto."
-        validCodigo.className = "text-danger"
-        validCodigo.style = "display: block;"
+    let validPais = document.getElementById("validPais");
+    if (!regex.test(pais.value)) {
+        validPais.innerText = "Por favor, introduce solo caracteres de texto."
+        validPais.className = "text-danger"
+        validPais.style = "display: block;"
         /*modificar el color del borde del input con id=codigo */
-        codigo.className = "form-control border-input";
+        pais.className = "form-control border-input";
         return false;
     }
-    validCodigo.style = "display: none;"
-    codigo.className = "form-control border-input-ok";
+    validPais.style = "display: none;"
+    pais.className = "form-control border-input-ok";
     return true;
 
 }
-function validarCorreo() {
-    let validCorreo = document.getElementById("validCorreo");
-    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!regex.test(correo.value)) {
 
-        validCorreo.innerText = "ingrese un correo válido";
-        validCorreo.className = "text-danger";
-        validCorreo.style = "display:block;";
-
-        correo.className = "form-control border-input";
+function validarTexto2() {
+    var regex = /^[A-Za-z]+$/;
+    let validCapital = document.getElementById("validCapital");
+    if (!regex.test(capital.value)) {
+        validCapital.innerText = "Por favor, introduce solo caracteres de texto."
+        validCapital.className = "text-danger"
+        validCapital.style = "display: block;"
+        /*modificar el color del borde del input con id=codigo */
+        capital.className = "form-control border-input";
         return false;
     }
-    validCorreo.style = "display:none;";
-    correo.className = "form-control border-input-ok";
+    validCapital.style = "display: none;"
+    capital.className = "form-control border-input-ok";
     return true;
+
 }
-function validarDescripcion() {
-    let validDescripcion = document.getElementById("validDescripcion");
-    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!regex.test(descripcion.value)) {
 
-        validDescripcion.innerText = "ingrese una descripción";
-        validDescripcion.className = "text-danger";
-        validDescripcion.style = "display:block;";
-
-        descripcion.className = "form-control border-input";
+function validarTexto3() {
+    var regex = /^[A-Za-z]+$/;
+    let validRegion = document.getElementById("validRegion");
+    if (!regex.test(region.value)) {
+        validRegion.innerText = "Por favor, introduce solo caracteres de texto."
+        validRegion.className = "text-danger"
+        validRegion.style = "display: block;"
+        /*modificar el color del borde del input con id=codigo */
+        region.className = "form-control border-input";
         return false;
     }
-    validDescripcion.style = "display:none;";
-    descripcion.className = "form-control border-input-ok";
+    validRegion.style = "display: none;"
+    region.className = "form-control border-input-ok";
     return true;
+
 }
 
-codigo.addEventListener("input", validarTexto);
-correo.addEventListener("input", validarCorreo);
-descripcion.addEventListener("input", validarDescripcion);
-//pais.addEventListener("input", validarPais);
+function validarTexto4() {
+    var regex = /^[A-Za-z]+$/;
+    let validIdioma = document.getElementById("validIdioma");
+    if (!regex.test(idioma.value)) {
+        validIdioma.innerText = "Por favor, introduce solo caracteres de texto."
+        validIdioma.className = "text-danger"
+        validIdioma.style = "display: block;"
+        /*modificar el color del borde del input con id=codigo */
+        idioma.className = "form-control border-input";
+        return false;
+    }
+    validIdioma.style = "display: none;"
+    idioma.className = "form-control border-input-ok";
+    return true;
+
+}
+
+
+pais.addEventListener("input", validarTexto);
+capital.addEventListener("input", validarTexto2);
+region.addEventListener("input", validarTexto3);
+idioma.addEventListener("input", validarTexto4);
 
 
 
@@ -125,15 +146,15 @@ document.addEventListener("DOMContentLoaded", mostrarTodo);
 function leerInput() {
 
     let valid0 = validarTexto();
-    let valid1 = validarCorreo();
-    let valid2 = validarDescripcion();
-    let valid3 = validarPais();
+    let valid1 = validarTexto2();
+    let valid2 = validarTexto3();
+    let valid3 = validarTexto4();
     if (valid0 && valid1 && valid2 && valid3) {
         let objeto = {
-            "codigo": codigo.value,
-            "descripcion": descripcion.value,
-            "correo": correo.value,
             "pais": pais.value,
+            "capital": capital.value,
+            "region": region.value,
+            "idioma": idioma.value,
             "estado": false
         };
         array.push(objeto);
@@ -146,15 +167,15 @@ function leerInput() {
     //console.log(codigo.value); //codigo.value: datos ingresado en la caja
 }
 function limpiar() {
-    descripcion.value = "";
-    descripcion.className = "form-control";
-    codigo.value = "";
-    codigo.className = "form-control";
-    correo.value = "";
-    correo.className = "form-control";
     pais.value = "";
     pais.className = "form-control";
-    codigo.focus();
+    capital.value = "";
+    capital.className = "form-control";
+    region.value = "";
+    region.className = "form-control";
+    idioma.value = "";
+    idioma.className = "form-control";
+    pais.focus();
 }
 //llamar a una funcion desde javascript
 //leerInput();
@@ -169,19 +190,19 @@ function actualizarTablaHtml() {
         let fila = document.createElement("tr");
 
         //td es la columna para el codigo.
-        let columnCodigo = document.createElement("td");
-        columnCodigo.textContent = array[index].pais;
-        fila.appendChild(columnCodigo);
+        let columnPais = document.createElement("td");
+        columnPais.textContent = array[index].pais;
+        fila.appendChild(columnPais);
 
         //td es la columna para el correo
-        let columnCorreo = document.createElement("td");
-        columnCorreo.textContent = array[index].correo;
-        fila.appendChild(columnCorreo);
+        let columnCapital = document.createElement("td");
+        columnCapital.textContent = array[index].capital;
+        fila.appendChild(columnCapital);
 
         //td es la columna para la description
-        let columnDescripcion = document.createElement("td");
-        columnDescripcion.textContent = array[index].descripcion;
-        fila.appendChild(columnDescripcion);
+        let columnRegion = document.createElement("td");
+        columnRegion.textContent = array[index].region;
+        fila.appendChild(columnRegion);
 
         //td es la columna para la description
         let columnIdioma = document.createElement("td");

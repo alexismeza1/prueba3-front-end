@@ -223,8 +223,13 @@ function actualizarTablaHtml() {
         columnOpciones.appendChild(btnEliminar);
         //fin del codigo del boton de eliminar
 
+
+        /*Comento el codigo para marcar texto, con el fin de quitar el boton de la interfaz,
+        ya que no es necesario ahora, pero lo comento en caso de necesitarlo en otra situacion.
+        Con esto realizo el primer commit de la nueva rama*/
+
         //inicia el codigo del boton marcar.
-        let btnMarcar = document.createElement("button");
+        /*let btnMarcar = document.createElement("button");
         btnMarcar.textContent = "Marcar";
         btnMarcar.className = "btn btn-primary";
         btnMarcar.addEventListener("click", function () {
@@ -232,7 +237,7 @@ function actualizarTablaHtml() {
             cambiarEstado(index);
         });
         columnOpciones.appendChild(btnMarcar);
-        //fin del codigo del boton marcar
+        //fin del codigo del boton marcar*/
 
         //agrega columnOpciones a la fila
         fila.appendChild(columnOpciones);

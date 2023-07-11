@@ -28,6 +28,10 @@ const fun4 = (a, b) => {
 }
 console.log("resultado: " + fun4(1, 1));
 
+/*En general se agregaron 4 opciones de la API requerida, pais, capital, region e idioma.
+ Las cuales al estar ya creadas aparecen inmediatamente en la interfaz, y en el archivo html se agregaron 4 label para hacer ingresos 
+ de datos. */
+
 /*Selectores javascript */
 let pais = document.getElementById("pais");
 let capital = document.getElementById("capital");
@@ -86,7 +90,7 @@ function validarTexto3() {
     return true;
 
 }
-
+/*Se agrega una cuarta validacion requerida en la documentacion para tener la misma cantidad de APIS */
 function validarTexto4() {
     var regex = /^[A-Za-z]+$/;
     let validIdioma = document.getElementById("validIdioma");
@@ -189,22 +193,22 @@ function actualizarTablaHtml() {
         //tr es una fila
         let fila = document.createElement("tr");
 
-        //td es la columna para el codigo.
+        //td es la columna para el pais.
         let columnPais = document.createElement("td");
         columnPais.textContent = array[index].pais;
         fila.appendChild(columnPais);
 
-        //td es la columna para el correo
+        //td es la columna para la capital
         let columnCapital = document.createElement("td");
         columnCapital.textContent = array[index].capital;
         fila.appendChild(columnCapital);
 
-        //td es la columna para la description
+        //td es la columna para la region
         let columnRegion = document.createElement("td");
         columnRegion.textContent = array[index].region;
         fila.appendChild(columnRegion);
 
-        //td es la columna para la description
+        //td es la columna para el idioma
         let columnIdioma = document.createElement("td");
         columnIdioma.textContent = array[index].idioma;
         fila.appendChild(columnIdioma);

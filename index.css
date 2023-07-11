@@ -1,0 +1,21 @@
+.border-input{
+    border: 2px solid red;
+}
+.border-input:focus{
+    border: 1px solid red;
+    box-shadow: 2px 2px 2px red; 
+}
+.border-input-ok{
+    border: 2px solid green;
+}
+.thead-color{
+    color: white;
+    background-color: blue;
+}
+.body{
+    font-family: cursive;
+}
+.marcar-fila{
+    text-decoration: line-through;
+    color: green;
+}
